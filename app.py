@@ -81,6 +81,8 @@ def handle_message(event):
         except:
             print(traceback.format_exc())
             line_bot_api.reply_message(event.reply_token, TextSendMessage('QA Error'))
+    elif msg[0]=='!':
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(msg))
          
 
 @handler.add(PostbackEvent)
