@@ -126,7 +126,7 @@ def handle_message(event):
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(QA_answer))
         except:
             print(traceback.format_exc())
-            line_bot_api.reply_message(event.reply_token, TextSendMessage('QA Error'))
+            line_bot_api.reply_message(event.reply_token, TextSendMessage('Copilot Error'))
 
          
 
