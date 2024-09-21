@@ -59,31 +59,31 @@ def Copilot_response(text):
     
 
 
-# Replace with your API key
-#api_key = "your_api_key_here"
-
-# Headers for the request
-headers = {
-#    "Authorization": f"Bearer {api_key}",
-    "Content-Type": "application/json"
-}
-
-# Data to send in the request
-data = {
-    "input": text
-}
-
-# Sending a POST request to the API
-response = requests.post(api_endpoint, headers=headers, json=data)
-
-# Checking the response status
-if response.status_code == 200:
-    print("Success!")
-    print("Response:", response.json())
-else:
-    print("Failed to communicate with Copilot Studio API")
-    print("Status Code:", response.status_code)
-    print("Response:", response.text)
+    # Replace with your API key
+    #api_key = "your_api_key_here"
+    
+    # Headers for the request
+    headers = {
+    #    "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+    
+    # Data to send in the request
+    data = {
+        "input": text
+    }
+    
+    # Sending a POST request to the API
+    response = requests.post(api_endpoint, headers=headers, json=data)
+    
+    # Checking the response status
+    if response.status_code == 200:
+        print("Success!")
+        print("Response:", response.json())
+    else:
+        print("Failed to communicate with Copilot Studio API")
+        print("Status Code:", response.status_code)
+        print("Response:", response.text)
 
     return output.answers[0].answer
 
