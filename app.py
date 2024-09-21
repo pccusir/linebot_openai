@@ -35,6 +35,8 @@ credential = AzureKeyCredential(os.getenv('AZURE_KEY'))
 knowledge_base_project = os.getenv('PROJECT')
 deployment = 'production'
 
+api_endpoint = os.getenv('COPILOT_ENDPOINT')
+
 #def GPT_response(text):
     # 接收回應
     #response = openai.Completion.create(model="gpt-3.5-turbo-instruct", prompt=text, temperature=0.5, max_tokens=500)
