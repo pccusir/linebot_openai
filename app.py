@@ -14,6 +14,8 @@ import datetime
 #import openai
 import time
 import traceback
+
+import requests
 #======python的函數庫==========
 
 from azure.core.credentials import AzureKeyCredential
@@ -53,7 +55,36 @@ def QA_response(text):
     return output.answers[0].answer
 
 def Copilot_response(text):
-# Copilot API
+# Copilot Studio
+    
+
+
+# Replace with your API key
+#api_key = "your_api_key_here"
+
+# Headers for the request
+headers = {
+#    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"
+}
+
+# Data to send in the request
+data = {
+    "input": text
+}
+
+# Sending a POST request to the API
+response = requests.post(api_endpoint, headers=headers, json=data)
+
+# Checking the response status
+if response.status_code == 200:
+    print("Success!")
+    print("Response:", response.json())
+else:
+    print("Failed to communicate with Copilot Studio API")
+    print("Status Code:", response.status_code)
+    print("Response:", response.text)
+
     return output.answers[0].answer
 
 # 監聽所有來自 /callback 的 Post Request
@@ -76,7 +107,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    if msg[0]=='+':
+    if msg[0]=='-':
         try:
             QA_answer = QA_response(msg)
             print(QA_answer)
