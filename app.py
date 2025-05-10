@@ -30,10 +30,10 @@ handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 # OPENAI API Key初始化設定
 #openai.api_key = os.getenv('OPENAI_API_KEY')
 
-endpoint = os.getenv('END_POINT')
-credential = AzureKeyCredential(os.getenv('AZURE_KEY'))
-knowledge_base_project = os.getenv('PROJECT')
-deployment = 'production'
+endpoint = os.getenv('LANGUAGE_ENDPOINT')
+credential = AzureKeyCredential(os.getenv('LANGUAGE_KEY'))
+knowledge_base_project = os.getenv('LANGUAGE_PROJECT')
+deployment = 'LANGUAGE_PRODUCTION'
 
 api_endpoint = os.getenv('COPILOT_ENDPOINT')
 
